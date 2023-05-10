@@ -5,8 +5,7 @@ import {
   LinearScale,
   BarElement,
   Title,
-  Tooltip, 
-  Legend 
+  Tooltip,  
 } from "chart.js";
 import ChartSummary from "./ChartSummary";
 import data from './assets/data.json'
@@ -18,7 +17,6 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
 )
 
 
@@ -58,20 +56,36 @@ const BarChart = () => {
         data: amountSpent,
         backgroundColor: 'rgba(75, 192, 192,1)'
       }
-    ]
+    ],
+    // options: {
+    //   scales: {
+    //     x: {
+    //       grid: {
+    //         drawOnChartArea: false, 
+    //       }
+    //     },
+    //     y: {
+    //       grid: {
+    //         display: false,
+    //       }
+    //     }
+    //   }
+    // }
 
+    //need to remove gridlines...
   }
 
   
   return (
-    <section className="bg-stone-100">
+    <section className="bg-stone-100 border-2 rounded-xl px-8">
       <div>
-        <h1 className="text-2xl font-bold"> Spending - Last 7 days</h1>
+        <h1 className="text-2xl font-bold pt-4"> Spending - Last 7 days</h1>
       </div>
       <div>
         <Bar data={chartData} />
 
       </div>
+      <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
     
       <br />
       <ChartSummary />

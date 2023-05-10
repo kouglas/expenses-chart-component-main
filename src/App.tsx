@@ -8,7 +8,7 @@ import Header from "./Header"
 function App() {
   
   return (
-    <div className="App w-1/2  mr-auto ml-auto mt-40 bor">
+    <div className="App w-1/3  mr-auto ml-auto mt-40">
       <Header />
       <br />
       <BarChart />
