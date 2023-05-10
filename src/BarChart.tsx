@@ -46,7 +46,7 @@ const BarChart = () => {
   const amountSpent = data.map(getAmount)
 
 
-  console.log(labels)
+  // console.log(labels)
 
   const chartData = {
     labels,
@@ -54,35 +54,43 @@ const BarChart = () => {
       {
         label: "",
         data: amountSpent,
-        backgroundColor: 'rgba(75, 192, 192,1)'
+        backgroundColor: 'hsl(10, 79%, 65%)',
+        borderRadius: 4,
+        hoverBackgroundColor: 'hsl(186, 34%, 60%)'
       }
     ],
-    // options: {
-    //   scales: {
-    //     x: {
-    //       grid: {
-    //         drawOnChartArea: false, 
-    //       }
-    //     },
-    //     y: {
-    //       grid: {
-    //         display: false,
-    //       }
-    //     }
-    //   }
-    // }
-
-    //need to remove gridlines...
+    options: {
+      scales: {
+        x: {
+          grid: {
+            display: false, 
+          },
+          border: {
+            color: 'white'
+          },
+        },
+        y: {
+          grid: {
+            display: false,
+          },
+          ticks: {
+            display: false,
+          },
+          border: {
+            color: 'white'
+          }
+        }
+      }
+    }
   }
 
-  
   return (
     <section className="bg-stone-100 border-2 rounded-xl px-8">
       <div>
-        <h1 className="text-2xl font-bold pt-4"> Spending - Last 7 days</h1>
+        <h1 className="text-2xl font-bold py-8  text-amber-950"> Spending - Last 7 days</h1>
       </div>
       <div>
-        <Bar data={chartData} />
+        <Bar data={chartData} options={chartData.options} />
 
       </div>
       <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
